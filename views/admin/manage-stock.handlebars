@@ -1,0 +1,46 @@
+<div class="row mt-4">
+    <div class="col-lg-12">
+        <h1 class="text-center">{{ title }}</h1>
+        <p>Manage stock for your operational..</p>
+    </div>
+
+    <form action="/admin/stock/manage" method="post">
+        <div class="mb-3">
+            <input type="text" class="form-control" name="sku" placeholder="sku">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="p_name" placeholder="p_name">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="price" placeholder="price">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="stock" placeholder="stock">
+        </div>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">SKU</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Stock</th>
+                {{!-- <th scope="col">Action</th> --}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each stocks}}
+            <tr>
+                <th scope="row">{{this.id}}</th>
+                <td>{{this.sku}}</td>
+                <td>{{this.p_name}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.stock}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
