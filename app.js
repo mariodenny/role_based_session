@@ -185,7 +185,7 @@ app.post("/admin/stock/manage", checkRole('admin'), async (req, res) => {
             stock
         } = req.body;
         if (!sku || !p_name || price == null || stock == null) {
-            return res.status(400).redirect("/admin/manage-stock?error=invalid");
+            return res.status(400).redirect("/admin/stock/manage?error=invalid");
         }
         console.log(`Request body ${req.body}`)
         const [result] = await pool.execute(
