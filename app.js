@@ -43,7 +43,7 @@ app.use(
         saveUninitialized:false,
         cookie:{
             httpOnly:true,
-            secure:process.env.NODE_ENV === "development",
+            secure:process.env.NODE_ENV === "production",
             sameSite:"lax",
             maxAge: 100 * 60 * 30
         }
@@ -148,7 +148,7 @@ app.get("/admin", checkRole('admin'), (req,res) =>{
     res.render('admin/home', {
         title:"Admin Page",
         role : "admin",
-        // layout:'admin'
+        nav : "admin-nav"
     })
 })
 
@@ -156,7 +156,6 @@ app.get("/user", checkRole('user'), (req,res) =>{
     res.render('user/home', {
         title:"user Page",
         role : "user",
-        layout:'user'
     })
 })
 
